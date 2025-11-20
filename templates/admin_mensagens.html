@@ -1,0 +1,48 @@
+========== ARQUIVO: templates/admin_mensagens.html ==========
+
+{% extends "base.html" %}
+
+{% block titulo %}Admin - Mensagens{% endblock %}
+
+{% block conteudo %}
+<section class="admin-section">
+    <h1>Mensagens de Contato</h1>
+
+    <div class="messages-container">
+        {% if mensagens %}
+            <div class="messages-list">
+                {% for msg in mensagens %}
+                    <div class="message-card {% if not msg.lido %}unread{% endif %}">
+                        <div class="message-header">
+                            <h3>{{ msg.nome }}</h3>
+                            <span class="message-date">{{ msg.data_envio.strftime('%d/%m/%Y às %H:%M') }}</span>
+                        </div>
+
+                        <div class="message-subject">
+                            <strong>Assunto:</strong> {{ msg.assunto }}
+                        </div>
+
+                        <div class="message-email">
+                            <strong>Email:</strong> <a href="mailto:{{ msg.email }}">{{ msg.email }}</a>
+                        </div>
+
+                        <div class="message-content">
+                            <p>{{ msg.mensagem }}</p>
+                        </div>
+
+                        <div class="message-actions">
+                            <a href="mailto:{{ msg.email }}" class="btn btn-small btn-secondary">Responder</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="no-messages">Nenhuma mensagem de contato recebida ainda.</p>
+        {% endif %}
+    </div>
+
+    <div class="admin-nav">
+        <a href="{{ url_for('admin_projetos') }}" class="btn btn-secondary">Voltar aos Projetos</a>
+    </div>
+</section>
+{% endblock %}

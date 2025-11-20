@@ -1,0 +1,55 @@
+========== ARQUIVO: templates/portfolio.html ==========
+
+{% extends "base.html" %}
+
+{% block titulo %}Portfólio - Meus Projetos{% endblock %}
+
+{% block conteudo %}
+<section class="portfolio-section">
+    <h1>Meus Projetos</h1>
+    <p class="section-subtitle">Conheça os projetos que desenvolvi</p>
+
+    {% if projetos.items %}
+        <div class="projects-grid">
+            {% for projeto in projetos.items %}
+                <div class="project-card">
+                    <img src="{{ url_for('static', filename='images/' + projeto.imagem) }}" alt="{{ projeto.titulo }}" class="project-image">
+                    <div class="project-info">
+                        <h3>{{ projeto.titulo }}</h3>
+                        <p>{{ projeto.descricao[:120] }}...</p>
+                        <div class="technologies">
+                            {% for tech in projeto.tecnologias.split(',') %}
+                                <span class="tech-badge">{{ tech.strip() }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="project-links">
+                            {% if projeto.link_github %}
+                                <a href="{{ projeto.link_github }}" target="_blank" class="btn btn-small">GitHub</a>
+                            {% endif %}
+                            {% if projeto.link_demo %}
+                                <a href="{{ projeto.link_demo }}" target="_blank" class="btn btn-small">Demo</a>
+                            {% endif %}
+                            <a href="{{ url_for('projeto_detalhe', id=projeto.id) }}" class="btn btn-small btn-primary">Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Paginação -->
+        <div class="pagination">
+            {% if projetos.has_prev %}
+                <a href="{{ url_for('portfolio', pagina=projetos.prev_num) }}" class="btn btn-secondary">← Anterior</a>
+            {% endif %}
+
+            <span class="pagination-info">Página {{ projetos.page }} de {{ projetos.pages }}</span>
+
+            {% if projetos.has_next %}
+                <a href="{{ url_for('portfolio', pagina=projetos.next_num) }}" class="btn btn-secondary">Próxima →</a>
+            {% endif %}
+        </div>
+    {% else %}
+        <p class="no-projects">Nenhum projeto cadastrado ainda.</p>
+    {% endif %}
+</section>
+{% endblock %}

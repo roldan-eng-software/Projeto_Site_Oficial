@@ -1,0 +1,89 @@
+========== ARQUIVO: templates/contato.html ==========
+
+{% extends "base.html" %}
+
+{% block titulo %}Contato - Meu Portfólio{% endblock %}
+
+{% block conteudo %}
+<section class="contact-section">
+    <h1>Entre em Contato</h1>
+    <p class="section-subtitle">Vou ficar feliz em ouvir de você</p>
+
+    <div class="contact-container">
+        <div class="contact-form-wrapper">
+            <form id="contactForm" class="contact-form">
+                <div class="form-group">
+                    <label for="nome">Nome *</label>
+                    <input type="text" id="nome" name="nome" required placeholder="Seu nome">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="assunto">Assunto *</label>
+                    <input type="text" id="assunto" name="assunto" required placeholder="Qual é o assunto?">
+                </div>
+
+                <div class="form-group">
+                    <label for="mensagem">Mensagem *</label>
+                    <textarea id="mensagem" name="mensagem" rows="7" required placeholder="Digite sua mensagem..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-large">Enviar Mensagem</button>
+                <div id="formMessage" class="form-message"></div>
+            </form>
+        </div>
+
+        <div class="contact-info">
+            <h2>Informações de Contato</h2>
+            <div class="info-item">
+                <h3>📧 Email</h3>
+                <p><a href="mailto:seu@email.com">seu@email.com</a></p>
+            </div>
+
+            <div class="info-item">
+                <h3>💼 LinkedIn</h3>
+                <p><a href="https://linkedin.com/in/seu-perfil" target="_blank">linkedin.com/in/seu-perfil</a></p>
+            </div>
+
+            <div class="info-item">
+                <h3>🐙 GitHub</h3>
+                <p><a href="https://github.com/seu-usuario" target="_blank">github.com/seu-usuario</a></p>
+            </div>
+
+            <div class="info-item">
+                <h3>📱 Telefone</h3>
+                <p><a href="tel:+5511999999999">+55 (11) 99999-9999</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    
+    fetch("{{ url_for('contato') }}", {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        const messageDiv = document.getElementById('formMessage');
+        if(data.status === 'sucesso') {
+            messageDiv.innerHTML = '<p style="color: green;">✓ ' + data.mensagem + '</p>';
+            document.getElementById('contactForm').reset();
+        } else {
+            messageDiv.innerHTML = '<p style="color: red;">✗ Erro ao enviar mensagem</p>';
+        }
+    })
+    .catch(error => {
+        document.getElementById('formMessage').innerHTML = '<p style="color: red;">✗ Erro na conexão</p>';
+    });
+});
+</script>
+{% endblock %}

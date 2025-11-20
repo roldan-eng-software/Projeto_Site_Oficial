@@ -1,0 +1,57 @@
+========== ARQUIVO: templates/projeto_detalhe.html ==========
+
+{% extends "base.html" %}
+
+{% block titulo %}{{ projeto.titulo }} - Meu Portfólio{% endblock %}
+
+{% block conteudo %}
+<section class="project-detail">
+    <div class="project-detail-container">
+        <div class="project-detail-image">
+            <img src="{{ url_for('static', filename='images/' + projeto.imagem) }}" alt="{{ projeto.titulo }}">
+        </div>
+
+        <div class="project-detail-content">
+            <h1>{{ projeto.titulo }}</h1>
+            
+            <div class="project-meta">
+                <span class="date">📅 {{ projeto.data_criacao.strftime('%d/%m/%Y') }}</span>
+            </div>
+
+            <div class="project-description">
+                <h2>Descrição</h2>
+                <p>{{ projeto.descricao }}</p>
+            </div>
+
+            <div class="technologies-section">
+                <h2>Tecnologias Utilizadas</h2>
+                <div class="technologies">
+                    {% for tech in projeto.tecnologias.split(',') %}
+                        <span class="tech-badge">{{ tech.strip() }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="project-links-section">
+                <h2>Links</h2>
+                <div class="links-container">
+                    {% if projeto.link_github %}
+                        <a href="{{ projeto.link_github }}" target="_blank" class="btn btn-github">
+                            🔗 Ver no GitHub
+                        </a>
+                    {% endif %}
+                    {% if projeto.link_demo %}
+                        <a href="{{ projeto.link_demo }}" target="_blank" class="btn btn-demo">
+                            🌐 Ver Demo
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="back-link">
+                <a href="{{ url_for('portfolio') }}" class="btn btn-secondary">← Voltar ao Portfólio</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

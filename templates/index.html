@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block titulo %}Início - Meu Portfólio{% endblock %}
+
+{% block conteudo %}
+<div class="hero">
+    <div class="hero-content">
+        <h1>Bem-vindo ao Meu Portfólio</h1>
+        <p>Desenvolvedor apaixonado por criar soluções inovadoras</p>
+        <a href="{{ url_for('portfolio') }}" class="btn btn-primary">Ver Meus Projetos</a>
+    </div>
+</div>
+
+<section class="featured-projects">
+    <h2>Projetos em Destaque</h2>
+    <div class="projects-grid">
+        {% if projetos %}
+            {% for projeto in projetos %}
+                <div class="project-card">
+                    <img src="{{ url_for('static', filename='images/' + projeto.imagem) }}" alt="{{ projeto.titulo }}" class="project-image">
+                    <div class="project-info">
+                        <h3>{{ projeto.titulo }}</h3>
+                        <p>{{ projeto.descricao[:100] }}...</p>
+                        <div class="technologies">
+                            {% for tech in projeto.tecnologias.split(',') %}
+                                <span class="tech-badge">{{ tech.strip() }}</span>
+                            {% endfor %}
+                        </div>
+                        <a href="{{ url_for('projeto_detalhe', id=projeto.id) }}" class="btn btn-secondary">Ver Detalhes</a>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="no-projects">Nenhum projeto em destaque ainda.</p>
+        {% endif %}
+    </div>
+</section>
+
+<section class="cta">
+    <h2>Tem um projeto em mente?</h2>
+    <p>Entre em contato comigo para discutir suas ideias</p>
+    <a href="{{ url_for('contato') }}" class="btn btn-primary">Entre em Contato</a>
+</section>
+{% endblock %}
