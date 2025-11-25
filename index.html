@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfólio de projetos e serviços em produção - Desenvolvedor Full Stack">
+    <meta name="keywords" content="portfólio, desenvolvedor, full stack, projetos, web development">
+    <meta name="author" content="Sandro Roldan">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Portfólio - Desenvolvedor Full Stack">
+    <meta property="og:description" content="Confira meus projetos e serviços em produção">
+
+    <title>Portfólio - Desenvolvedor Full Stack</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">Portfolio</div>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero">Início</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#portfolio">Portfólio</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <p class="hero-subtitle">Desenvolvedor Full Stack</p>
+            <h1 class="hero-title">Transformando Ideias em Realidade Digital</h1>
+            <p class="hero-description">
+                Criando soluções web modernas e escaláveis com as melhores tecnologias do mercado
+            </p>
+            <div class="cta-buttons">
+                <a href="#portfolio" class="btn btn-primary">Ver Projetos</a>
+                <a href="#contact" class="btn btn-secondary">Entre em Contato</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text slide-in-left">
+                    <h2>Sobre Mim</h2>
+                    <p>
+                        Sou um desenvolvedor full stack apaixonado por criar experiências digitais
+                        excepcionais. Com expertise em desenvolvimento web moderno, transformo
+                        conceitos complexos em soluções elegantes e funcionais.
+                    </p>
+                    <p>
+                        Especializado em Python, HTML CSS, JavaScript, React, Django, Flask e tecnologias modernas
+                        de desenvolvimento web. Cada projeto é uma oportunidade de aprender algo
+                        novo e entregar valor real aos clientes.
+                    </p>
+                    <p>
+                        Meu foco está em criar aplicações robustas, escaláveis e com excelente
+                        experiência do usuário, sempre utilizando as melhores práticas de
+                        desenvolvimento.
+                    </p>
+                </div>
+                <div class="about-image slide-in-right">
+                    <div class="about-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop"
+                            alt="Desenvolvimento Web" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">Meus Trabalhos</p>
+                <h2>Projetos em Produção</h2>
+                <p>Confira alguns dos projetos que desenvolvi e estão atualmente em produção</p>
+            </div>
+
+            <div class="portfolio-grid">
+                <!-- Project Card 1 -->
+                <div class="project-card reveal">
+                    <div class="project-icon">🦷</div>
+                    <h3>Sistema Odontológico</h3>
+                    <p>
+                        Sistema completo de gestão para clínicas odontológicas com agendamento,
+                        prontuários e geração de relatórios em PDF.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Django</span>
+                        <span class="tag">React</span>
+                        <span class="tag">PostgreSQL</span>
+                    </div>
+                    <a href="#" class="project-link" target="_blank" rel="noopener">
+                        Acessar Projeto →
+                    </a>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="project-card reveal">
+                    <div class="project-icon">📱</div>
+                    <h3>App de Cadastro</h3>
+                    <p>
+                        Aplicação Streamlit para registro de telefones com integração de API
+                        para busca automática de endereços via CEP.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Streamlit</span>
+                        <span class="tag">API</span>
+                    </div>
+                    <a href="#" class="project-link" target="_blank" rel="noopener">
+                        Acessar Projeto →
+                    </a>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="project-card reveal">
+                    <div class="project-icon">🌐</div>
+                    <h3>Sistema Web para adminstração de Oficina Mecânica</h3>
+                    <p>
+                        Plataforma completa de adminstração de Oficina Mecânica com controle de
+                        clientes, agendamentos, serviços e financeiro.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Next.js</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">MongoDB</span>
+                    </div>
+                    <a href="https://oficina-mecanica-x07b.onrender.com/" class="project-link" target="_blank"
+                        rel="noopener">
+                        Acessar Projeto → Oficina Mecânica
+                    </a>
+                </div>
+
+                <!-- Project Card 4 -->
+                <div class="project-card reveal">
+                    <div class="project-icon">📊</div>
+                    <h3>Dashboard Analytics</h3>
+                    <p>
+                        Dashboard interativo para visualização de dados e métricas de negócio
+                        em tempo real com gráficos dinâmicos.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">D3.js</span>
+                        <span class="tag">FastAPI</span>
+                    </div>
+                    <a href="#" class="project-link" target="_blank" rel="noopener">
+                        Acessar Projeto →
+                    </a>
+                </div>
+
+                <!-- Project Card 5 -->
+                <div class="project-card reveal">
+                    <div class="project-icon">🎨</div>
+                    <h3>Portfolio Designer</h3>
+                    <p>
+                        Site portfólio moderno e responsivo para designer gráfico com galeria
+                        de trabalhos e formulário de contato.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">GSAP</span>
+                    </div>
+                    <a href="#" class="project-link" target="_blank" rel="noopener">
+                        Acessar Projeto →
+                    </a>
+                </div>
+
+                <!-- Project Card 6 -->
+                <div class="project-card reveal">
+                    <div class="project-icon">🔐</div>
+                    <h3>Sistema de Autenticação</h3>
+                    <p>
+                        Sistema robusto de autenticação e autorização com JWT, refresh tokens
+                        e autenticação de dois fatores.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Django</span>
+                        <span class="tag">JWT</span>
+                        <span class="tag">Redis</span>
+                    </div>
+                    <a href="#" class="project-link" target="_blank" rel="noopener">
+                        Acessar Projeto →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="section-header">
+                    <p class="section-subtitle">Entre em Contato</p>
+                    <h2>Vamos Trabalhar Juntos</h2>
+                    <p>
+                        Tem um projeto em mente? Entre em contato e vamos transformar
+                        sua ideia em realidade!
+                    </p>
+                </div>
+
+                <div class="contact-links">
+                    <div class="contact-card">
+                        <div class="contact-icon">📧</div>
+                        <h3>Email</h3>
+                        <a href="mailto:roldan.eng.software@gmail.com">roldan.eng.software@gmail.com</a>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">💼</div>
+                        <h3>LinkedIn</h3>
+                        <a href="https://linkedin.com/in/roldan-eng-software" target="_blank" rel="noopener">
+                            /roldan-eng-software
+                        </a>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">🐙</div>
+                        <h3>GitHub</h3>
+                        <a href="https://github.com/roldan-eng-software" target="_blank" rel="noopener">
+                            @roldan-eng-software
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Portfolio. Desenvolvido por Roldan Eng Software.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>
